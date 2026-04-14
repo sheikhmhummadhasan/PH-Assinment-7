@@ -17,7 +17,7 @@ const Friends = () => {
     useEffect(() => {
         handelfetching();
     }, []);
-    console.log(frd)
+    // console.log(frd)
     return (
         <div>
             <div className="grid grid-cols-4 gap-3 mb-6 w-11/12 mx-auto">

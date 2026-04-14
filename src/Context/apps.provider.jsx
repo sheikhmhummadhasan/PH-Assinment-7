@@ -1,12 +1,16 @@
 'use client'
 import React, { createContext, useState } from 'react';
 
-const AppContext = createContext('AppContext');
+export const AppContext = createContext('AppContext');
 const AppsProvider = ({children}) => {
 
-    
+    const [click,setClick] = useState([])
+    const [det,setDet] = useState()
+
+    // console.log(det)
+
     return (
-        <AppContext.Provider value={''}>
+        <AppContext.Provider value={{click,setClick,det,setDet}}>
             {children}
         </AppContext.Provider>
     );

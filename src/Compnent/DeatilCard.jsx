@@ -1,6 +1,7 @@
 'use client'
+import { AppContext } from '@/Context/apps.provider';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaRegBell, FaVideo } from 'react-icons/fa';
 import { FaRegMessage } from 'react-icons/fa6';
 import { FiArchive } from 'react-icons/fi';
@@ -8,7 +9,7 @@ import { MdOutlineCall } from 'react-icons/md';
 import { RiDeleteBinLine } from 'react-icons/ri';
 
 const DeatilCard = ({ detail }) => {
-    console.log(detail)
+
     const [frd, setFrd] = useState([])
 
     const handelfetching = async () => {
@@ -21,14 +22,38 @@ const DeatilCard = ({ detail }) => {
     useEffect(() => {
         handelfetching();
     }, []);
-    console.log(frd)
 
     const e = frd.find(e => e.id == detail)
-    console.log(e)
+
+    const {click,setClick,det,setDet} = useContext(AppContext);
+
+    function handelclick(elem){
+        setClick([...click,elem])
+        setDet(e)
+    }
 
     if (!e) {
         return <div>Loading...</div>;
     }
+
+
+    const btns = [
+        {
+            id:1,
+            Call: <MdOutlineCall />,
+            text: "Call"
+        },
+        {
+            id:2,
+            Call: <FaRegMessage />,
+            text: "Text"
+        },
+        {
+            id:3,
+            Call: <FaVideo />,
+            text: "Video"
+        }
+    ]
     return (
         <div>
             <div className="grid grid-cols-2 gap-3 w-11/12 mx-auto my-20">
@@ -79,19 +104,18 @@ const DeatilCard = ({ detail }) => {
                     </div>
                     <div className="w-12/12 p-7 box rounded-xl">
                         <h1 className='text-2xl font-semibold'>Click Cheack in</h1>
-                        <div className="flex items-center justify-between">
-                            <div className="p-5 flex items-center w-3/12 box rounded-xl justify-center flex-col gap-1">
-                                <h2 className='text-3xl'><MdOutlineCall /></h2>
-                                <p className='text-2xl font-semibold'>Call</p>
-                            </div>
-                            <div className="p-5 flex items-center w-3/12 box rounded-xl justify-center flex-col gap-1">
-                                <h2 className='text-3xl'><FaRegMessage /></h2>
-                                <p className='text-2xl font-semibold'>Text</p>
-                            </div>
-                            <div className="p-5 flex items-center w-3/12 box rounded-xl justify-center flex-col gap-1">
-                                <h2 className='text-3xl'><FaVideo /></h2>
-                                <p className='text-2xl font-semibold'>Video</p>
-                            </div>
+                        <div className="flex items-center justify-between mt-4">
+                            {
+                                btns.map((elem) => {
+                                    return (
+                                        <div onClick={()=>handelclick(elem)} key={elem.id} className="cursor-pointer p-5 flex items-center w-3/12 box rounded-xl justify-center flex-col gap-1">
+                                            <h2 className='text-3xl'>{elem.Call}</h2>
+                                            <p className='text-2xl font-semibold'>{elem.text}</p>
+                                        </div>
+                                    )
+                                })
+                            }
+
 
                         </div>
                     </div>

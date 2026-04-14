@@ -1,27 +1,40 @@
+'use client'
+import { AppContext } from '@/Context/apps.provider';
 import Image from 'next/image';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { MdOutlineCall } from 'react-icons/md';
 
 const Timelinepage = () => {
+
+    const { click, det } = useContext(AppContext);
+    
     return (
         <div>
             <div className="mt-20 w-11/12 mx-auto">
                 <h2 className='text-4xl font-bold'>TimeLine</h2>
                 <div className="">
-                    <select className='border px-10 py-2 rounded my-4' >
+                    <select 
+                     className='border px-10 py-2 rounded my-4' 
+                     onChange={(e)=> setFilter(e.target.value)} >
                         <option value="" className='font-semibold text-[#777]'>Filter Timeline</option>
                         <option value="Call" className='font-semibold text-[#777]'>Call</option>
                         <option value="Text" className='font-semibold text-[#777]'>Text</option>
                         <option value="Video" className='font-semibold text-[#777]'>Video</option>
                     </select>
                     <div className="">
-                        <div className="flex items-center gap-5 my-5 box rounded-xl p-5">
-                            <h2 className='font-semibold text-6xl'><MdOutlineCall /></h2>
-                            <div className="">
-                                <h3 className='text-2xl font-semibold'>CAll with Shera Shen</h3>
-                                <h3 className='text-2xl font-semibold'>march-12/2013</h3>
-                            </div>
-                        </div>
+                        {
+                            click.map((e) => {
+                                return (
+                                    <div key={e.id} className="flex items-center gap-5 my-5 box rounded-xl p-5">
+                                        <h2 className='font-semibold text-6xl'>{e.Call}</h2>
+                                        <div className="">
+                                            <h3 className='text-2xl font-semibold'>CAll with {det.name}</h3>
+                                            <h3 className='text-2xl font-semibold'>{det.next_due_date}</h3>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
 
