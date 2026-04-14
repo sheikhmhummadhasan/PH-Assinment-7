@@ -4,9 +4,9 @@ import React, { createContext, useState } from 'react';
 const AppContext = createContext('AppContext');
 const AppsProvider = ({children}) => {
 
-    const [active,setActive] = useState(false)
+    
     return (
-        <AppContext.Provider value={active}>
+        <AppContext.Provider value={''}>
             {children}
         </AppContext.Provider>
     );
