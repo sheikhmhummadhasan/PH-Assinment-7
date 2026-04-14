@@ -32,20 +32,20 @@ const Friends = () => {
     // console.log(frd)
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-3 mb-6 w-11/12 mx-auto">
-                <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5 mb-6 w-11/12 mx-auto">
+                <div className="p-10 flex flex-col items-center justify-center gap-3 bg-[#fff] rounded-xl">
                     <p className='text-5xl font-semibold'>10</p>
                     <p className='text-2xl font-semibold text-[#64748B] '>Total friends</p>
                 </div>
-                <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
+                <div className="p-10 flex flex-col items-center justify-center gap-3 bg-[#fff] rounded-xl">
                     <p className='text-5xl font-semibold'>3</p>
                     <p className='text-2xl font-semibold text-[#64748B] '>On-Track</p>
                 </div>
-                <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
+                <div className="p-10 flex flex-col items-center justify-center gap-3 bg-[#fff] rounded-xl">
                     <p className='text-5xl font-semibold'>6</p>
                     <p className='text-2xl font-semibold text-[#64748B] '>Need Attention</p>
                 </div>
-                <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
+                <div className="p-10 flex flex-col items-center justify-center gap-3 bg-[#fff] rounded-xl">
                     <p className='text-5xl font-semibold'>{frd.length}</p>
                     <p className='text-2xl font-semibold text-[#64748B] '>Interactions This Month</p>
                 </div>
@@ -53,12 +53,12 @@ const Friends = () => {
             </div>
             <div className=" w-11/12 mx-auto">
                 <h1 className='font-semibold text-3xl'>Friends</h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-5">
                     {
                         frd.map((e) => {
                             return (
                                 <Link key={e.id} href={`/${e.id}`}>
-                                    <div className="flex flex-col items-center justify-center gap-2 box rounded-2xl py-3 ">
+                                    <div className="flex flex-col items-center justify-center gap-2 bg-[#fff] rounded-2xl py-3 ">
                                         <Image src={e.picture} alt='hero' height={100} width={100} />
                                         <h2 className="text-3xl font-semibold">{e.name}</h2>
                                         <p className='text-[#7e7e7e]'>{e.days_since_contact} days</p>

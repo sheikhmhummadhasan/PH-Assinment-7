@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-theme="light"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-[#E9E9E9]`}
     >
       <body className="min-h-full flex flex-col">
         <Provider>

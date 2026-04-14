@@ -27,7 +27,7 @@ const Rechart = () => {
                     <h2 className="text-6xl font-semibold">Friendship Analytics</h2>
                 </div>
 
-                <div className="flex items-center justify-center flex-col w-11/12 mx-auto gap-5 rounded-2xl p-20 mb-6 bg-[#e4e4e4]">
+                <div className="flex items-center justify-center flex-col w-11/12 mx-auto gap-5 rounded-2xl p-20 mb-6 bg-[#fff]">
 
                     <PieChart width={500} height={300}>
                         <Pie
