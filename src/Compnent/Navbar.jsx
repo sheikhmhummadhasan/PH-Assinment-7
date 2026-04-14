@@ -11,9 +11,9 @@ const Navbar = () => {
     const pathname = usePathname()
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="flex flex-col md:flex-row items-center p-3 lg:navbar bg-base-100 shadow-sm">
                 <div className="flex-1">
-                    <Image src={'/logo.png'} height={50} width={100} alt={'this is logo'} ></Image>
+                    <Image src={'/logo.png'} height={50} width={200} alt={'this is logo'} ></Image>
                 </div>
                 <div className="flex-none">
                     <ul className="menu menu-horizontal px-1">

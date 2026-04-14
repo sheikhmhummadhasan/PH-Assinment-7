@@ -20,7 +20,7 @@ const Friends = () => {
     // console.log(frd)
     return (
         <div>
-            <div className="grid grid-cols-4 gap-3 mb-6 w-11/12 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-3 mb-6 w-11/12 mx-auto">
                 <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
                     <p className='text-5xl font-semibold'>10</p>
                     <p className='text-2xl font-semibold'>Total friends</p>
@@ -41,7 +41,7 @@ const Friends = () => {
             </div>
             <div className=" w-11/12 mx-auto">
                 <h1 className='font-semibold text-3xl'>Friends</h1>
-                <div className="grid grid-cols-4 gap-3 my-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 my-5">
                     {
                         frd.map((e) => {
                             return (

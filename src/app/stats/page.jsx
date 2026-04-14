@@ -1,9 +1,10 @@
+import Rechart from '@/Compnent/Rechart';
 import React from 'react';
 
 const Statspage = () => {
     return (
         <div>
-            This is stats
+            <Rechart></Rechart>
         </div>
     );
 };
