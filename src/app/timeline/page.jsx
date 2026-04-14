@@ -30,16 +30,13 @@ const Timelinepage = () => {
                                 return (
                                     <div key={e.id} className="flex items-center gap-5 my-5 box rounded-xl p-5">
                                         <h2 className='font-semibold text-6xl'>{e.Call}</h2>
-                                        {
-                                            det.map((elem) => {
-                                                return (
-                                                    <div key={elem.id} className="">
-                                                        <h3 className='text-2xl font-semibold'>CAll with {elem.name}</h3>
-                                                        <h3 className='text-2xl font-semibold'>{elem.next_due_date}</h3>
+                                      
+                                                    <div  className="">
+                                                        <h3 className='text-2xl font-semibold'>CAll with {det.name}</h3>
+                                                        <h3 className='text-2xl font-semibold'>{det.next_due_date}</h3>
                                                     </div>
-                                                )
-                                            })
-                                        }
+                                            
+                                        
                                     </div>
                                 )
                             })

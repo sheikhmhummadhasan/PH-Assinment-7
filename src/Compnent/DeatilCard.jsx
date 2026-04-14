@@ -25,31 +25,37 @@ const DeatilCard = ({ detail }) => {
 
     const e = frd.find(e => e.id == detail)
 
-    const {click,setClick,det,setDet} = useContext(AppContext);
+    const { click, setClick, det, setDet } = useContext(AppContext);
 
-    function handelclick(elem){
-        setClick([...click,elem])
-        setDet([...det,e])
+    function handelclick(elem) {
+        setClick([...click, elem])
+        if (e) {
+            setDet(e)
+        }
     }
 
     if (!e) {
-        return <div>Loading...</div>;
+        return (
+            <div className="flex items-center justify-center h-screen">
+                <span className="loading loading-spinner loading-lg"></span>
+            </div>
+        )
     }
 
 
     const btns = [
         {
-            id:1,
+            id: 1,
             Call: <MdOutlineCall />,
             text: "Call"
         },
         {
-            id:2,
+            id: 2,
             Call: <FaRegMessage />,
             text: "Text"
         },
         {
-            id:3,
+            id: 3,
             Call: <FaVideo />,
             text: "Video"
         }
@@ -74,10 +80,10 @@ const DeatilCard = ({ detail }) => {
                         </div>
                         <p className='text-[#7e7e7e]'>{e.bio} days</p>
                     </div>
-                    <div className="flex flex-col items-start justify-center mt-4 gap-2">
-                        <button className=" w-full md:py-2 w-5/12 btn"><FaRegBell /> Snooze 2 weeks</button>
-                        <button className=" w-full md:py-2 w-5/12 btn"><FiArchive /> Archive</button>
-                        <button className=" w-full md:py-2 w-5/12 btn text-red-500"><RiDeleteBinLine /> Delete</button>
+                    <div className="flex flex-col my-4 items-start justify-center lg:justify-between t-4 gap-2">
+                        <button className=" w-full active md:py-2 w-5/12 btn"><FaRegBell /> Snooze 2 weeks</button>
+                        <button className=" w-full active md:py-2 w-5/12 btn"><FiArchive /> Archive</button>
+                        <button className=" w-full active md:py-2 w-5/12 btn text-red-500"><RiDeleteBinLine /> Delete</button>
                     </div>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-5">
@@ -108,7 +114,7 @@ const DeatilCard = ({ detail }) => {
                             {
                                 btns.map((elem) => {
                                     return (
-                                        <div onClick={()=>handelclick(elem)} key={elem.id} className="cursor-pointer p-5 flex items-center w-3/12 box rounded-xl justify-center flex-col gap-1">
+                                        <div onClick={() => handelclick(elem)} key={elem.id} className="cursor-pointer p-5 flex items-center w-3/12 box rounded-xl justify-center flex-col gap-1">
                                             <h2 className='text-3xl'>{elem.Call}</h2>
                                             <p className='text-2xl font-semibold'>{elem.text}</p>
                                         </div>

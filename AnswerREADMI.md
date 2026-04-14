@@ -22,5 +22,5 @@ Add a well-designed `README.md` to your GitHub repository that includes:
   2.Time Line(who at time line at this time)
   3.State(Stat ways you can see those at chart)
 
-Live link - https://ph-assinment-7-5yag9iyyw-hasan2001onlin-5076s-projects.vercel.app/
+Live link - https://ph-assinment-7.vercel.app/
 git hub link - https://github.com/sheikhmhummadhasan/PH-Assinment-7

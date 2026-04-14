@@ -5,7 +5,7 @@ export const AppContext = createContext('AppContext');
 const AppsProvider = ({children}) => {
 
     const [click,setClick] = useState([])
-    const [det,setDet] = useState([])
+    const [det,setDet] = useState()
 
     // console.log(det)
 

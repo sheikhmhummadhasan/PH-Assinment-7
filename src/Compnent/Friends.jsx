@@ -6,17 +6,29 @@ import React, { useEffect, useState } from 'react';
 const Friends = () => {
 
     const [frd, setFrd] = useState([])
+    const [loading, setLoading] = useState(true);
 
-    const handelfetching = async () => {
-        const res = await fetch('/friend.json');
-        const prom = await res.json();
-        // console.log(prom)
-        setFrd(prom)
-    }
+
 
     useEffect(() => {
+        const handelfetching = async () => {
+            setLoading(true)
+            const res = await fetch('/friend.json');
+            const prom = await res.json();
+            // console.log(prom)
+            setFrd(prom)
+            setLoading(false)
+        }
         handelfetching();
     }, []);
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-screen">
+                <span className="loading loading-spinner loading-lg"></span>
+            </div>
+        );
+    }
     // console.log(frd)
     return (
         <div>
@@ -37,7 +49,7 @@ const Friends = () => {
                     <p className='text-5xl font-semibold'>{frd.length}</p>
                     <p className='text-2xl font-semibold'>Interactions This Month</p>
                 </div>
-                
+
             </div>
             <div className=" w-11/12 mx-auto">
                 <h1 className='font-semibold text-3xl'>Friends</h1>
