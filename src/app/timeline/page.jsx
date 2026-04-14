@@ -19,24 +19,24 @@ const Timelinepage = () => {
                     <select
                         className='border px-10 py-2 rounded my-4'
                         onChange={(e) => setFilter(e.target.value)} >
-                        <option value="" className='font-semibold text-[#777]'>Filter Timeline</option>
-                        <option value="Call" className='font-semibold text-[#777]'>Call</option>
-                        <option value="Text" className='font-semibold text-[#777]'>Text</option>
-                        <option value="Video" className='font-semibold text-[#777]'>Video</option>
+                        <option value="" className='font-semibold text-[#64748B]'>Filter Timeline</option>
+                        <option value="Call" className='font-semibold text-[#64748B]'>Call</option>
+                        <option value="Text" className='font-semibold text-[#64748B]'>Text</option>
+                        <option value="Video" className='font-semibold text-[#64748B]'>Video</option>
                     </select>
                     <div className="">
                         {
                             click.map((e) => {
                                 return (
-                                    <div key={e.id} className="flex items-center gap-5 my-5 box rounded-xl p-5">
-                                        <h2 className='font-semibold text-6xl'>{e.Call}</h2>
-                                      
-                                                    <div  className="">
-                                                        <h3 className='text-2xl font-semibold'>CAll with {det.name}</h3>
-                                                        <h3 className='text-2xl font-semibold'>{det.next_due_date}</h3>
-                                                    </div>
-                                            
-                                        
+                                    <div key={e.id} className="flex items-center gap-5 my-7 box rounded-xl p-5">
+                                        <h2 className='font-semibold text-4xl text-[#26292d]'>{e.Call}</h2>
+
+                                        <div className="">
+                                            <h3 className='text-2xl font-semibold text-[#64748B]'><span className='font-bold text-[#000]'>{e.text}</span> with {det.name}</h3>
+                                            <h3 className='text-2xl font-semibold text-[#64748B]'>{det.next_due_date}</h3>
+                                        </div>
+
+
                                     </div>
                                 )
                             })

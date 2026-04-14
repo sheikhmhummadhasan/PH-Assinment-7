@@ -35,19 +35,19 @@ const Friends = () => {
             <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-3 mb-6 w-11/12 mx-auto">
                 <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
                     <p className='text-5xl font-semibold'>10</p>
-                    <p className='text-2xl font-semibold'>Total friends</p>
+                    <p className='text-2xl font-semibold text-[#64748B] '>Total friends</p>
                 </div>
                 <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
                     <p className='text-5xl font-semibold'>3</p>
-                    <p className='text-2xl font-semibold'>On-Track</p>
+                    <p className='text-2xl font-semibold text-[#64748B] '>On-Track</p>
                 </div>
                 <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
                     <p className='text-5xl font-semibold'>6</p>
-                    <p className='text-2xl font-semibold'>Need Attention</p>
+                    <p className='text-2xl font-semibold text-[#64748B] '>Need Attention</p>
                 </div>
                 <div className="p-10 flex flex-col items-center justify-center gap-3 box rounded-xl">
                     <p className='text-5xl font-semibold'>{frd.length}</p>
-                    <p className='text-2xl font-semibold'>Interactions This Month</p>
+                    <p className='text-2xl font-semibold text-[#64748B] '>Interactions This Month</p>
                 </div>
 
             </div>
