@@ -9,7 +9,7 @@ import { MdOutlineCall } from 'react-icons/md';
 const Timelinepage = () => {
 
     const { click, det } = useContext(AppContext);
-    console.log(click)
+    // console.log(click)
 
     const [filter, setFilter] = useState('')
     const filteredData = filter
