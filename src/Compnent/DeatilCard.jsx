@@ -110,6 +110,7 @@ const DeatilCard = ({ detail }) => {
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };

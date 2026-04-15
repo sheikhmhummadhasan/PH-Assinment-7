@@ -4,12 +4,13 @@ import Image from 'next/image';
 import React, { useContext, useState } from 'react';
 import { FaVideo } from 'react-icons/fa';
 import { FaRegMessage } from 'react-icons/fa6';
+import { ImCross } from 'react-icons/im';
 import { MdOutlineCall } from 'react-icons/md';
 
 const Timelinepage = () => {
 
     const { click, det } = useContext(AppContext);
-    // console.log(click)
+    console.log(click)
 
     const [filter, setFilter] = useState('')
     const filteredData = filter
@@ -20,6 +21,7 @@ const Timelinepage = () => {
 
     return (
         <div>
+
             <div className="mt-20 w-11/12 mx-auto">
                 <h2 className='text-4xl font-bold'>TimeLine</h2>
                 <div className="">
@@ -31,28 +33,35 @@ const Timelinepage = () => {
                         <option value="Text" className='font-semibold text-[#64748B]'>Text</option>
                         <option value="Video" className='font-semibold text-[#64748B]'>Video</option>
                     </select>
-                    <div className="">
-                        {
-                            filteredData.map((e) => {
-                                return (
-                                    <div key={e.id} className="flex items-center gap-5 my-7 bg-[#fff] rounded-xl p-5">
-                                        <h2 className='font-semibold text-4xl text-[#26292d]'>{e.type === 'call' ? <MdOutlineCall /> : e.type === 'text' ? <FaRegMessage /> : <FaVideo />}</h2>
-                                        <div className="">
-                                            <h3 className='text-xl font-semibold text-[#64748B]'>
-                                                <span className='font-bold text-[#000] text-2xl'>
-                                                    {e.type === 'call' ? 'Call' : e.type === 'text' ? 'Text' : 'Video'}
-                                                </span> with {e.e.name}
-                                            </h3>
-                                            <h3 className='text-xl font-semibold text-[#64748B]'>{e.e.next_due_date}</h3>
+                    {
+                        click.length === 0 ? <div className="w-11/12 py-50 flex-col mb-5 flex items-center justify-center rounded-2xl bg-[#fff] mx-auto">
+                            <ImCross className='text-5xl mb-3 text-red-600' />
+                            <h1 className="text-5xl">No Card's Available</h1>
+                        </div> : 
+                        <div className="">
+                            {
+                                filteredData.map((e) => {
+                                    return (
+                                        <div key={e.id} className="flex items-center gap-5 my-7 bg-[#fff] rounded-xl p-5">
+                                            <h2 className='font-semibold text-4xl text-[#26292d]'>{e.type === 'call' ? <MdOutlineCall /> : e.type === 'text' ? <FaRegMessage /> : <FaVideo />}</h2>
+                                            <div className="">
+                                                <h3 className='text-xl font-semibold text-[#64748B]'>
+                                                    <span className='font-bold text-[#000] text-2xl'>
+                                                        {e.type === 'call' ? 'Call' : e.type === 'text' ? 'Text' : 'Video'}
+                                                    </span> with {e.e.name}
+                                                </h3>
+                                                <h3 className='text-xl font-semibold text-[#64748B]'>{e.e.next_due_date}</h3>
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    }
                 </div>
 
             </div>
+
         </div>
     );
 };
