@@ -42,9 +42,9 @@ const DeatilCard = ({ detail }) => {
 
     return (
         <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-11/12 mx-auto my-20 ">
-                <div className="flex flex-col items-center justify-center">
-                    <div className=" w-11/12 flex md:flex flex-col p-3 text-center items-center justify-center gap-2 bg-[#fff] rounded-2xl py-3 w-5/12 ">
+            <div className="flex flex-col md:flex items-center gap-3 w-11/12 mx-auto my-20 lg:flex-row justify-center">
+                <div className="flex flex-col items-center justify-center lg:items-start lg:justify-start">
+                    <div className=" w-11/12 flex md:flex flex-col p-3 text-center items-center justify-center gap-2 bg-[#fff] rounded-2xl p-8 lg:w-10/12 ">
                         <Image src={e.picture} alt='hero' height={100} width={100} />
                         <h2 className="text-3xl font-semibold">{e.name}</h2>
                         <h4 className={
@@ -60,7 +60,7 @@ const DeatilCard = ({ detail }) => {
                         </div>
                         <p className='text-[#7e7e7e]'>{e.bio} days</p>
                     </div>
-                    <div className="flex flex-col my-4 items-start justify-center lg:justify-between t-4 gap-2">
+                    <div className="flex flex-col my-4 items-starr justify-cente lg:justify-start t-4 gap-2">
                         <button className=" w-full active md:py-2 w-5/12 btn"><FaRegBell /> Snooze 2 weeks</button>
                         <button className=" w-full active md:py-2 w-5/12 btn"><FiArchive /> Archive</button>
                         <button className=" w-full active md:py-2 w-5/12 btn text-red-500"><RiDeleteBinLine /> Delete</button>

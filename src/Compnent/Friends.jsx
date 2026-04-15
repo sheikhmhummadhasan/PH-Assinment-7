@@ -58,7 +58,7 @@ const Friends = () => {
                         frd.map((e) => {
                             return (
                                 <Link key={e.id} href={`/${e.id}`}>
-                                    <div className="flex flex-col items-center justify-center gap-2 bg-[#fff] rounded-2xl py-3 ">
+                                    <div className="flex flex-col items-center justify-center gap-2 bg-[#fff] rounded-2xl py-6 ">
                                         <Image src={e.picture} alt='hero' height={100} width={100} />
                                         <h2 className="text-3xl font-semibold">{e.name}</h2>
                                         <p className='text-[#7e7e7e]'>{e.days_since_contact} days</p>
