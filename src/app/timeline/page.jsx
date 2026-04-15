@@ -2,14 +2,21 @@
 import { AppContext } from '@/Context/apps.provider';
 import Image from 'next/image';
 import React, { useContext, useState } from 'react';
+import { FaVideo } from 'react-icons/fa';
+import { FaRegMessage } from 'react-icons/fa6';
 import { MdOutlineCall } from 'react-icons/md';
 
 const Timelinepage = () => {
 
     const { click, det } = useContext(AppContext);
-    console.log(det)
-    // const data = det.map((elem)=>elem)
-    // console.log(det)
+    console.log(click)
+
+    const [filter, setFilter] = useState('')
+    const filteredData = filter
+        ? click.filter(item =>
+            item.type.toLowerCase() === filter.toLowerCase()
+        )
+        : click;
 
     return (
         <div>
@@ -26,22 +33,21 @@ const Timelinepage = () => {
                     </select>
                     <div className="">
                         {
-                            click.map((e) => {
+                            filteredData.map((e) => {
                                 return (
                                     <div key={e.id} className="flex items-center gap-5 my-7 bg-[#fff] rounded-xl p-5">
-                                        <h2 className='font-semibold text-4xl text-[#26292d]'>{e.Call}</h2>
-
+                                        <h2 className='font-semibold text-4xl text-[#26292d]'>{e.type === 'call' ? <MdOutlineCall /> : e.type === 'text' ? <FaRegMessage /> : <FaVideo />}</h2>
                                         <div className="">
-                                            <h3 className='text-xl font-semibold text-[#64748B]'><span className='font-bold text-[#000] text-2xl'>{e.text}</span> with {det.name}</h3>
-                                            <h3 className='text-xl font-semibold text-[#64748B]'>{det.next_due_date}</h3>
+                                            <h3 className='text-xl font-semibold text-[#64748B]'>
+                                                <span className='font-bold text-[#000] text-2xl'>
+                                                    {e.type === 'call' ? 'Call' : e.type === 'text' ? 'Text' : 'Video'}
+                                                </span> with {e.e.name}
+                                            </h3>
+                                            <h3 className='text-xl font-semibold text-[#64748B]'>{e.e.next_due_date}</h3>
                                         </div>
-
-
                                     </div>
                                 )
                             })
-
-
                         }
                     </div>
                 </div>

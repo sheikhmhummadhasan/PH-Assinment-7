@@ -27,11 +27,8 @@ const DeatilCard = ({ detail }) => {
 
     const { click, setClick, det, setDet } = useContext(AppContext);
 
-    function handelclick(elem) {
-        setClick([...click, elem])
-        if (e) {
-            setDet(e)
-        }
+    function handelclick(e,type) {
+        setClick((prev)=>[...prev, {e,type}])
     }
 
     if (!e) {
@@ -43,28 +40,11 @@ const DeatilCard = ({ detail }) => {
     }
 
 
-    const btns = [
-        {
-            id: 1,
-            Call: <MdOutlineCall />,
-            text: "Call"
-        },
-        {
-            id: 2,
-            Call: <FaRegMessage />,
-            text: "Text"
-        },
-        {
-            id: 3,
-            Call: <FaVideo />,
-            text: "Video"
-        }
-    ]
     return (
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-11/12 mx-auto my-20 ">
                 <div className="flex flex-col items-center justify-center">
-                    <div className=" w-11/12 flex md:flex flex-col p-3 text-center items-center justify-center gap-2 box rounded-2xl py-3 w-5/12 ">
+                    <div className=" w-11/12 flex md:flex flex-col p-3 text-center items-center justify-center gap-2 bg-[#fff] rounded-2xl py-3 w-5/12 ">
                         <Image src={e.picture} alt='hero' height={100} width={100} />
                         <h2 className="text-3xl font-semibold">{e.name}</h2>
                         <h4 className={
@@ -87,7 +67,7 @@ const DeatilCard = ({ detail }) => {
                     </div>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-5">
-                    <div className="flex w-12/12 items-center justify-between gap-3 p-7 rounded-xl box">
+                    <div className="flex w-12/12 items-center justify-between gap-3 p-7 rounded-xl bg-[#fff]">
                         <div className="text-center p-5 box rounded-xl">
                             <h1 className='text-3xl font-bold'>{e.days_since_contact}</h1>
                             <p className='font-semibold'>Days Since Contact</p>
@@ -101,26 +81,29 @@ const DeatilCard = ({ detail }) => {
                             <p className='font-semibold'>Next Due</p>
                         </div>
                     </div>
-                    <div className="flex p-7 box rounded-xl w-12/12 items-center justify-between">
+                    <div className="flex p-7 bg-[#fff] rounded-xl w-12/12 items-center justify-between">
                         <div className="flex flex-col justify-center items-start">
                             <p className='text-xl font-semibold'>Relationship Goal</p>
                             <p className='text-xl font-semibold'>Connect every 30 days</p>
                         </div>
                         <button className='btn'>Edit</button>
                     </div>
-                    <div className="w-12/12 p-7 box rounded-xl">
+                    <div className="w-12/12 p-7 bg-[#fff] rounded-xl">
                         <h1 className='text-2xl font-semibold'>Click Cheack in</h1>
                         <div className="flex items-center justify-between mt-4">
-                            {
-                                btns.map((elem) => {
-                                    return (
-                                        <div onClick={() => handelclick(elem)} key={elem.id} className="cursor-pointer p-5 flex items-center w-3/12 box rounded-xl justify-center flex-col gap-1">
-                                            <h2 className='text-3xl'>{elem.Call}</h2>
-                                            <p className='text-2xl font-semibold'>{elem.text}</p>
-                                        </div>
-                                    )
-                                })
-                            }
+
+                            <div onClick={()=> handelclick(e,"call")} className=" cursor-pointer p-5 flex items-center w-3/12 bg-[#fff]  box rounded-xl justify-center flex-col gap-1 " >
+                                <h2 className='text-3xl'><MdOutlineCall /></h2>
+                                <p className='text-2xl font-semibold'>Call</p>
+                            </div>
+                            <div onClick={()=> handelclick(e,"text")} className=" cursor-pointer p-5 flex items-center w-3/12 bg-[#fff]  box rounded-xl justify-center flex-col gap-1 " >
+                                <h2 className='text-3xl'><FaRegMessage /></h2>
+                                <p className='text-2xl font-semibold'>Text</p>
+                            </div>
+                            <div onClick={()=> handelclick(e,"video")} className=" cursor-pointer p-5 flex items-center w-3/12 bg-[#fff] box  rounded-xl justify-center flex-col gap-1 " >
+                                <h2 className='text-3xl'><FaVideo /></h2>
+                                <p className='text-2xl font-semibold'>Video</p>
+                            </div>
 
 
                         </div>
