@@ -36,7 +36,7 @@ const Timelinepage = () => {
                     {
                         click.length === 0 ? <div className="w-11/12 py-50 flex-col mb-5 flex items-center justify-center rounded-2xl bg-[#fff] mx-auto">
                             <ImCross className='text-5xl mb-3 text-red-600' />
-                            <h1 className="text-5xl">No Card's Available</h1>
+                            <h1 className="text-5xl text-center">No Card's Available</h1>
                         </div> : 
                         <div className="">
                             {
