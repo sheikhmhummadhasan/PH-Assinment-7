@@ -24,7 +24,7 @@ const Friends = () => {
     }, []);
 
     function handelTost(e){
-        toast.success(`${e.name} is selected`)
+        toast.success(`${e.name} is selected`,{position: "top-center",})
     }
 
     if (loading) {

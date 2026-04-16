@@ -30,7 +30,7 @@ const DeatilCard = ({ detail }) => {
 
     function handelclick(e,type) {
         setClick((prev)=>[...prev, {e,type}])
-        toast.success(`${e.name} in ${type}`)
+        toast.success(`${e.name} in ${type}`,{position: "top-center",})
     }
 
     if (!e) {
