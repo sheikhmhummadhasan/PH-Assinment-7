@@ -7,6 +7,7 @@ import { FaRegMessage } from 'react-icons/fa6';
 import { FiArchive } from 'react-icons/fi';
 import { MdOutlineCall } from 'react-icons/md';
 import { RiDeleteBinLine } from 'react-icons/ri';
+import { toast } from 'react-toastify';
 
 const DeatilCard = ({ detail }) => {
 
@@ -29,6 +30,7 @@ const DeatilCard = ({ detail }) => {
 
     function handelclick(e,type) {
         setClick((prev)=>[...prev, {e,type}])
+        toast.success(`${e.name} in ${type}`)
     }
 
     if (!e) {

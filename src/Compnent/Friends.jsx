@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Friends = () => {
 
@@ -22,6 +23,10 @@ const Friends = () => {
         handelfetching();
     }, []);
 
+    function handelTost(e){
+        toast.success(`${e.name} is selected`)
+    }
+
     if (loading) {
         return (
             <div className="flex items-center justify-center h-screen">
@@ -29,6 +34,8 @@ const Friends = () => {
             </div>
         );
     }
+
+
     // console.log(frd)
     return (
         <div>
@@ -57,7 +64,7 @@ const Friends = () => {
                     {
                         frd.map((e) => {
                             return (
-                                <Link key={e.id} href={`/${e.id}`}>
+                                <Link onClick={()=> handelTost(e)} key={e.id} href={`/${e.id}`}>
                                     <div className="flex flex-col items-center justify-center gap-2 bg-[#fff] rounded-2xl py-6 ">
                                         <Image src={e.picture} alt='hero' height={100} width={100} />
                                         <h2 className="text-3xl font-semibold">{e.name}</h2>
